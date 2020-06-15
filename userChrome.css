@@ -1,0 +1,112 @@
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*\
+
+                            ===================================
+                            FIREFOX QUANTUM ROUNDED TABS V. 1.1
+                            ===================================
+
+
+Customization:
+--------------
+You have to be very careful with that, even if you know CSS. The problem is that Firefox's
+internal CSS rules sometimes differ from web CSS rules. And its logic regarding classes, IDs and 
+layers differs from (valid) HTML as well.
+
+But you can and should change the tab text color to a light one if you want a dark theme.
+For CSS color names and codes, see https://www.w3schools.com/colors/colors_names.asp.
+The variables in this file that you can change without risk are followed by the comment
+'customizable'.
+
+
+For version updates and comments: see https://github.com/FrankConijn/Firefox-Quantum-Rounded-Tabs. 
+I like to hear how you like it.
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+.tabbrowser-tab {
+    box-sizing: border-box;
+    margin: 0 1px 0 1px !important;
+    border-radius: 10px 10px 0 0 !important;
+    font-size:13px!important;
+    margin-left:2px !important;
+    height:35px !important;
+}
+
+#TabsToolbar {
+    padding-top: 15px !important;
+    padding-left:0 !important
+ 
+}
+
+.tabbrowser-tab .tab-text.tab-label {
+    color: white !important;            /* tab text color - customizable */
+}
+
+
+.tabbrowser-tab[selected="true"] .tab-text.tab-label {
+    color: white !important;            /* tab text color - customizable */
+}
+
+
+.tabbrowser-tab[selected="true"] .tab-background {
+
+    border-bottom: none !important;
+    opacity: 1;
+}
+
+
+.tab-background {
+    border: none !important;
+    border-radius: 10px 10px 0 0 !important;
+    background: white;
+    opacity: .1;
+}
+
+
+.tab-line {                             /* = light top line in selected tab in Quantum default */
+    display: none !important;
+}
+
+
+.tabbrowser-tab:hover,
+.tabbrowser-tab .tab-text.tab-label:hover {
+    cursor: pointer !important; 
+}
+
+
+.tabbrowser-tab:hover {
+    border: 0px solid grey !important;
+}
+
+
+.tabbrowser-tab[selected="true"]:hover {	
+    border: none !important;
+}
+
+
+[tabsintitlebar]:root:not([extradragspace]) .tabbrowser-tab::after,
+.tabbrowser-tab:hover::after,
+#tabbrowser-tabs:not([movingtab])>.tabbrowser-tab[beforehovered]::after {
+    border: none !important;                /* leave as is; affects the New Tab icon (the plus) */
+}
+
+
+/* BOOKMARK ICON COLORIZATION */
+
+#bookmarks-view treechildren::-moz-tree-image(container),
+#PlacesToolbarItems toolbarbutton[container="true"] .toolbarbutton-icon,
+#PlacesToolbarItems menu[container="true"] .menu-iconic-left,
+#BMB_bookmarksPopup menu[container="true"] .menu-iconic-icon,
+#bookmarksMenu menu[container="true"] .menu-iconic-icon {
+    fill: #FFCC00 !important;               /* orange; customizable */
+    margin-right: 8px;                      /* correction for the Firefox default imperfection */
+}
+
+
+/* ADDRESS BAR ICONS CLEAN-UP */
+
+#pageActionSeparator, #pocket-button, #pageActionButton {
+    display: none !important;               /* customizable: delete if you want the objects back */
+}
+
+
